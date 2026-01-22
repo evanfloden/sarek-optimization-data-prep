@@ -68,7 +68,7 @@ process EXTRACT_CHR21_VCF {
     tag "truth_${params.chromosome}"
     publishDir "${params.outdir}/truth", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/bcftools:1.21--ddbb66c059d8ea99'
+    container 'quay.io/biocontainers/bcftools:1.21--h3a4d415_1'
 
     cpus 2
     memory '4 GB'
