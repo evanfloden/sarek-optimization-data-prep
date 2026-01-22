@@ -20,9 +20,8 @@ params.truth_vcf = 'https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/rel
 params.truth_vcf_tbi = 'https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz.tbi'
 params.truth_bed = 'https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed'
 
-// Validate chromosome parameter
-def validChromosomes = (1..22).collect { "chr${it}" } + ['chrX', 'chrY', 'chrM']
-if (!validChromosomes.contains(params.chromosome)) {
+// Validate chromosome parameter (using regex for reliability)
+if (!(params.chromosome ==~ /^chr([1-9]|1[0-9]|2[0-2]|X|Y|M)$/)) {
     error "Invalid chromosome: ${params.chromosome}. Must be chr1-22, chrX, chrY, or chrM"
 }
 
