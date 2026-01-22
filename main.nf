@@ -83,15 +83,7 @@ process EXTRACT_CHR21_VCF {
 
     script:
     """
-    # Download the truth VCF index first
-    curl -sL "${params.truth_vcf_tbi}" -o truth.vcf.gz.tbi
-
-    if [ ! -s truth.vcf.gz.tbi ]; then
-        echo "Error: Failed to download truth VCF index" >&2
-        exit 1
-    fi
-
-    # Extract chromosome from truth VCF (streaming with index)
+    # Extract chromosome from truth VCF (bcftools handles remote URLs and index automatically)
     bcftools view \\
         -r ${chromosome} \\
         "${params.truth_vcf}" \\
