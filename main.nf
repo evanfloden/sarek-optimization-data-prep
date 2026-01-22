@@ -29,7 +29,7 @@ process EXTRACT_CHR21_BAM {
     tag "HG002_${params.chromosome}"
     publishDir "${params.outdir}/input", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7f88b'
+    container 'community.wave.seqera.io/library/samtools:1.21--e97a60e225d68952'
 
     cpus 4
     memory '8 GB'
@@ -68,7 +68,7 @@ process EXTRACT_CHR21_VCF {
     tag "truth_${params.chromosome}"
     publishDir "${params.outdir}/truth", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/bcftools:1.21--0b2e26d57ad5c6d9'
+    container 'community.wave.seqera.io/library/bcftools:1.21--ddbb66c059d8ea99'
 
     cpus 2
     memory '4 GB'
@@ -148,7 +148,7 @@ process BAM_TO_FASTQ {
     tag "fastq_${params.chromosome}"
     publishDir "${params.outdir}/input", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7f88b'
+    container 'community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7f88'
 
     cpus 4
     memory '8 GB'
@@ -187,7 +187,7 @@ process COLLECT_STATS {
     tag "stats"
     publishDir "${params.outdir}", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7f88b'
+    container 'community.wave.seqera.io/library/samtools:1.21--e97a60e225d68952'
 
     cpus 1
     memory '2 GB'
