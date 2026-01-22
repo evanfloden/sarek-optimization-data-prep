@@ -114,7 +114,7 @@ process EXTRACT_CHR21_BED {
     tag "bed_${params.chromosome}"
     publishDir "${params.outdir}/truth", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/bedtools:2.31.1--69e1ddecd6c7d879'
+    container 'community.wave.seqera.io/library/bedtools:2.31.1--fb43a408b35255d6'
 
     cpus 1
     memory '2 GB'
