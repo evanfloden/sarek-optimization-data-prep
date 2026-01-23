@@ -29,7 +29,7 @@ process EXTRACT_CHR21_BAM {
     tag "HG002_${params.chromosome}"
     publishDir "${params.outdir}/input", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--e97a60e225d68952'
+    container 'quay.io/biocontainers/samtools:1.21--h50ea8bc_0'
 
     cpus 4
     memory '8 GB'
@@ -140,7 +140,7 @@ process BAM_TO_FASTQ {
     tag "fastq_${params.chromosome}"
     publishDir "${params.outdir}/input", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7f88'
+    container 'quay.io/biocontainers/samtools:1.21--h50ea8bc_0'
 
     cpus 4
     memory '8 GB'
@@ -179,7 +179,7 @@ process COLLECT_STATS {
     tag "stats"
     publishDir "${params.outdir}", mode: 'copy'
 
-    container 'community.wave.seqera.io/library/samtools:1.21--e97a60e225d68952'
+    container 'quay.io/biocontainers/samtools:1.21--h50ea8bc_0'
 
     cpus 1
     memory '2 GB'
